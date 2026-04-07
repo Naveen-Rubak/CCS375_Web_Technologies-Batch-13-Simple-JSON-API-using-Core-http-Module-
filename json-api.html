@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON API</title>
+</head>
+<body>
+
+<h2>Student Data</h2>
+
+<button onclick="getData()">Get Data</button>
+
+<p id="output"></p>
+
+<script>
+function getData() {
+    fetch('http://localhost:3000')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("output").innerHTML =
+                "ID: " + data.id + "<br>" +
+                "Name: " + data.name + "<br>" +
+                "Course: " + data.course;
+        })
+        .catch(error => console.log(error));
+}
+</script>
+
+</body>
+</html>
